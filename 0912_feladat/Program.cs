@@ -208,8 +208,8 @@
         {
             double InputD1 = AskForDouble("körív sugara: ");
             double InputD2 = AskForDouble("középponti szög: ");
-            double? Area = (Math.Pow(InputD1, 2.0) / 360) * InputD2 * Math.PI;
-            double? I = (InputD2 / 360.0) * Math.PI * 2 * InputD1;
+            double Area = (Math.Pow(InputD1, 2.0) / 360) * InputD2 * Math.PI;
+            double I = (InputD2 / 360.0) * Math.PI * 2 * InputD1;
             Console.WriteLine($"körcikk területe: {Area}");
             Console.WriteLine($"körív hossza: {I}");
         }
