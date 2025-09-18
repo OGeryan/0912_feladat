@@ -548,7 +548,24 @@ namespace _0912_feladat
         }
         static void F29()
         {
-
+            double n1 = AskForDouble("egy szám");
+            double p = n1;
+            string msg = $"{p} = ";
+            while (!IsPrime(p))
+            {
+                int n = 2;
+                while (p % n > 0)
+                {
+                    n += 1;
+                }
+                p /= n;
+                msg += $"{n}*";
+            }
+            if (p != 0)
+            {
+                msg += $"{p}";
+            }
+            Console.WriteLine(msg);
 
         }
 
@@ -556,34 +573,32 @@ namespace _0912_feladat
         {
             double n1 = AskForDouble("egy szám");
             double n2 = AskForDouble("két szám");
+
+            Console.WriteLine("lnko = " + LNKO(n1, n2));
+        }
+
+        static double LNKO(double n1, double n2)
+        {
             double a = (n1 > n2) ? n1 : n2;
-            while (a > 0)
+            double b = (n1 < n2) ? n1 : n2;
+            double t = 0;
+            while (b > 0)
             {
-                if (n2 % a == 0 && n1 % a == 0)
-                {
-                    Console.WriteLine(a + " az lnko");
-                    break;
-                }
-                a--;
+                t = b;
+                b = a % b;
+                a = t;
             }
+            return a;
         }
 
         static void F31()
         {
             double n1 = AskForDouble("egy szám");
             double n2 = AskForDouble("két szám");
-            double a = 1;
-            while (a < n1 * n2)
-            {
-                if (a % n1 == 0 && a % n2 == 0)
-                {
-                    Console.WriteLine(a + " az lkkt");
-                    break;
-                }
-                a += 1;
-            }
+            Console.WriteLine("lkkt = " + (Math.Abs(n1*n2) / LNKO(n1, n2)));
         }
 
 
     }
 }
+
