@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Drawing;
 using System.Numerics;
 namespace _0912_feladat
@@ -7,7 +7,7 @@ namespace _0912_feladat
     {
         static void Main(string[] args)
         {
-            F25();
+            F31();
         }
 
         static string AskForString(string q)
@@ -496,5 +496,94 @@ namespace _0912_feladat
             }
             Console.WriteLine(msg);
         }
+
+        static bool IsPrime(double n)
+        {
+            bool prime = true;
+            for (int i = 2; i <= Math.Floor(Math.Sqrt(n)); ++i)
+            {
+                if (n % i == 0)
+                {
+                    prime = false;
+                }
+            }
+            if (n == 1 || n == 2)
+            {
+                return false;
+            }
+            else
+            {
+                return prime;
+            }
+        }
+
+        static void F26()
+        {
+            double n = Math.Abs(AskForDouble("ez vajon prím?"));
+            bool prime = IsPrime(n);
+            Console.WriteLine((prime) ? "ez ám príma" : "nem príma");
+        }
+
+        static void F27()
+        {
+            double n = AskForDouble("eddig akarom a prímeket kiírni");
+            for (int i = 0; i <= n; i += 1)
+            {
+                if (IsPrime(i))
+                {
+                    Console.WriteLine($"{i} ");
+                }
+            }
+        }
+        static void F28()
+        {
+            double n = AskForDouble("eddig akarom a prímosztókat kiírni");
+            for (int i = 0; i <= n; i += 1)
+            {
+                if (IsPrime(i) && n % i == 0)
+                {
+                    Console.WriteLine($"{i} ");
+                }
+            }
+        }
+        static void F29()
+        {
+
+
+        }
+
+        static void F30()
+        {
+            double n1 = AskForDouble("egy szám");
+            double n2 = AskForDouble("két szám");
+            double a = (n1 > n2) ? n1 : n2;
+            while (a > 0)
+            {
+                if (n2 % a == 0 && n1 % a == 0)
+                {
+                    Console.WriteLine(a + " az lnko");
+                    break;
+                }
+                a--;
+            }
+        }
+
+        static void F31()
+        {
+            double n1 = AskForDouble("egy szám");
+            double n2 = AskForDouble("két szám");
+            double a = 1;
+            while (a < n1 * n2)
+            {
+                if (a % n1 == 0 && a % n2 == 0)
+                {
+                    Console.WriteLine(a + " az lkkt");
+                    break;
+                }
+                a += 1;
+            }
+        }
+
+
     }
 }
