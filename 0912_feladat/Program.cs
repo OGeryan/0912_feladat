@@ -7,7 +7,7 @@ namespace _0912_feladat
     {
         static void Main(string[] args)
         {
-            F31();
+            F33();
         }
 
         static string AskForString(string q)
@@ -527,7 +527,7 @@ namespace _0912_feladat
         static void F27()
         {
             double n = AskForDouble("eddig akarom a prímeket kiírni");
-            for (int i = 0; i <= n; i += 1)
+            for (int i = 2; i <= Math.Sqrt(n); i += 1)
             {
                 if (IsPrime(i))
                 {
@@ -598,7 +598,31 @@ namespace _0912_feladat
             Console.WriteLine("lkkt = " + (Math.Abs(n1*n2) / LNKO(n1, n2)));
         }
 
+        static void F32()
+        {
+            double a = AskForDouble("szorzótáblához");
+            for (int i = 1; i <= 10; i++)
+            {
+                for (int j = 1; j <= 10; j++)
+                {
+                    Console.Write($"{i*j*a} ");
+                }
+                Console.WriteLine();
+            }
+        }
 
+        static void F33()
+        {
+            double a = AskForDouble("szorzótáblához");
+            for (int i = 1; i <= 10; i++)
+            {
+                for (int j = 1; j <= 10; j++)
+                {
+                    Console.Write($"{i + j + a} ");
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
 
